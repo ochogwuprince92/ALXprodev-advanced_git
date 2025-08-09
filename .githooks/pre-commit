@@ -1,0 +1,18 @@
+#!/bin/bash
+# Check if each directory has a README file
+
+missing_readmes=0
+
+for dir in $(find . -type d -not -path "./.git*" -not -path "." -not -path "./.githooks*"); do
+  if [ ! -f "$dir/README.md" ] && [ ! -f "$dir/README" ]; then
+    echo "Missing README in $dir"
+    missing_readmes=1
+  fi
+done
+
+if [ "$missing_readmes" -eq 1 ]; then
+  echo " Commit aborted: Add README files to all directories."
+  exit 1
+fi
+
+exit 0
