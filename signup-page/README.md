@@ -1,2 +1,3 @@
-feature coming soon
+feature coming soon:
+
 Data requirements: email, firstName, lastName, profilePic
